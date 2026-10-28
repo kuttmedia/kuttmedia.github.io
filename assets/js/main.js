@@ -13,6 +13,7 @@
   const FINE = matchMedia('(pointer: fine)');
 
   const SITE = window.SITE || {};
+  const nav = $('#nav');
   const PROJECTS = window.PROJECTS || [];
   const CATS = window.CATEGORIES || {};
 
@@ -117,6 +118,43 @@
     history.replaceState(null, '', id);
   });
 
+  /* ---------- menu: one button opens a full-screen menu ---------- */
+  const menuBtn = $('.menu-btn');
+  const menu = $('#menu');
+  if (menuBtn && menu) {
+    const foot = document.createElement('div');
+    foot.className = 'menu-foot';
+    foot.innerHTML = '<a class="mono" data-email></a><ul class="mono"></ul>';
+    if (SITE.email) { const m = $('a', foot); m.href = 'mailto:' + SITE.email; m.textContent = SITE.email; }
+    (SITE.socials || []).forEach(s => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = s.url; a.textContent = s.label; a.target = '_blank'; a.rel = 'noopener';
+      li.appendChild(a); $('ul', foot).appendChild(li);
+    });
+    menu.appendChild(foot);
+
+    const word = $('.menu-word', menuBtn);
+    const outside = () => $$('body > *:not(.nav):not(.cursor):not(.env)');
+    let open = false;
+    function setMenu(on, { focus = true } = {}) {
+      if (on === open) return;
+      open = on;
+      nav.classList.toggle('menu-open', on);
+      menuBtn.setAttribute('aria-expanded', String(on));
+      word.textContent = on ? 'Close' : 'Menu';
+      document.documentElement.classList.toggle('menu-locked', on);
+      outside().forEach(el => { el.inert = on; });
+      if (lenis) on ? lenis.stop() : lenis.start();
+      if (on && focus) setTimeout(() => { const a = $('.nav-links a', menu); if (a) a.focus({ preventScroll: true }); }, 300);
+      if (!on && focus) menuBtn.focus({ preventScroll: true });
+    }
+    menuBtn.addEventListener('click', () => setMenu(!open));
+    addEventListener('keydown', e => { if (e.key === 'Escape' && open) setMenu(false); });
+    // close before the link's own handling, so a same-page link (#work) can scroll straight away
+    menu.addEventListener('click', e => { if (e.target.closest('a[href]')) setMenu(false, { focus: false }); }, true);
+  }
+
   /* ---------- page transitions: fade out before leaving for another page ---------- */
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href]');
@@ -194,7 +232,6 @@
   /* =========================================================
      Scroll-driven page: nav, timecode, fill text, drawn lines
      ========================================================= */
-  const nav = $('#nav');
   const contact = $('#contact');
   // dark sections the nav sits over (the mission hero), so it switches to its light-on-dark look
   const darkBands = $$('[data-dark]');

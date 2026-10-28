@@ -102,10 +102,52 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .brand-logo--dark{position:absolute;inset:0;opacity:0}
 .nav:not(.on-dark) .brand-logo--light{opacity:0}
 .nav:not(.on-dark) .brand-logo--dark{opacity:1}
-.nav-links{list-style:none;display:flex;gap:clamp(16px,2.6vw,36px);margin:0;padding:0}
-.nav-links a{position:relative;text-decoration:none;font-weight:500;font-size:.95rem;padding:6px 0}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease-out)}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+/* Menu button: opens the full-screen menu */
+.tc-chip{order:2;margin-left:auto}
+.menu-btn{order:3}
+.menu-btn{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 14px;border-radius:999px;cursor:pointer;color:inherit;font:inherit;
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(251,250,253,.6);border:1px solid var(--line);
+  transition:background-color .4s var(--ease-out),border-color .4s var(--ease-out),color .4s var(--ease-out)}
+.menu-btn:hover{border-color:var(--accent)}
+.nav.on-dark .menu-btn,.nav.menu-open .menu-btn{background:rgba(244,241,250,.08);border-color:rgba(244,241,250,.28)}
+.nav.on-dark .menu-btn:hover,.nav.menu-open .menu-btn:hover{border-color:var(--night-text)}
+.menu-icon{position:relative;width:16px;height:10px}
+.menu-icon i{position:absolute;left:0;right:0;height:1.5px;border-radius:2px;background:currentColor;transition:transform .5s var(--ease-out),top .5s var(--ease-out)}
+.menu-icon i:first-child{top:1px}
+.menu-icon i:last-child{top:7.5px}
+.nav.menu-open .menu-icon i{top:4.25px}
+.nav.menu-open .menu-icon i:first-child{transform:rotate(45deg)}
+.nav.menu-open .menu-icon i:last-child{transform:rotate(-45deg)}
+
+/* the menu itself: the purple night, big links, email and socials underneath */
+.menu{position:fixed;inset:0;z-index:-2;display:grid;align-content:center;gap:clamp(36px,7vh,64px);padding:clamp(100px,14vh,140px) var(--gutter) clamp(40px,7vh,64px);
+  background:radial-gradient(120% 90% at 70% 0%,#2a1d44 0%,var(--night) 60%);color:var(--night-text);overflow-y:auto;
+  visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease-io),visibility 0s linear .8s}
+.nav.menu-open .menu{visibility:visible;clip-path:inset(0);transition:clip-path .8s var(--ease-io),visibility 0s}
+.nav.menu-open{color:var(--night-text)}
+.nav.menu-open::before{opacity:0!important}
+.nav.menu-open .brand-logo--light{opacity:1}
+.nav.menu-open .brand-logo--dark{opacity:0}
+.nav.menu-open .tc-chip{opacity:0}
+.nav-links{list-style:none;margin:0;padding:0;display:grid;gap:clamp(2px,1vh,10px)}
+.nav-links li{overflow:hidden}
+.nav-links a{position:relative;display:inline-block;text-decoration:none;font-family:var(--f-display);font-weight:800;letter-spacing:-.04em;line-height:1.02;
+  font-size:clamp(2.8rem,8.5vw,6.6rem);padding:.04em 0;transform:translateY(105%);transition:transform .9s var(--ease-out),color .35s var(--ease-out)}
+.nav.menu-open .nav-links a{transform:none}
+.nav.menu-open .nav-links li:nth-child(1) a{transition-delay:.25s,0s}
+.nav.menu-open .nav-links li:nth-child(2) a{transition-delay:.31s,0s}
+.nav.menu-open .nav-links li:nth-child(3) a{transition-delay:.37s,0s}
+.nav.menu-open .nav-links li:nth-child(4) a{transition-delay:.43s,0s}
+.nav.menu-open .nav-links li:nth-child(5) a{transition-delay:.49s,0s}
+.nav-links a:hover{color:#b9a3ff}
+.nav-links a[aria-current="page"]{color:#b9a3ff}
+.menu-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;padding-top:22px;border-top:1px solid rgba(244,241,250,.14);
+  color:var(--night-dim);opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease-out),transform .8s var(--ease-out)}
+.nav.menu-open .menu-foot{opacity:1;transform:none;transition-delay:.55s}
+.menu-foot a{color:var(--night-text);text-decoration:none}
+.menu-foot a:hover{color:#b9a3ff}
+.menu-foot ul{list-style:none;margin:0;padding:0;display:flex;gap:20px}
+html.menu-locked{overflow:hidden}
 .tc-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--text-secondary);font-size:.68rem;opacity:0;transform:translateY(-6px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
 .tc-chip i{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .nav.scrolled .tc-chip{opacity:1;transform:none}
@@ -313,7 +355,6 @@ section{position:relative}
 .step h3{font-size:clamp(1.8rem,2.8vw,2.6rem);margin:28px 0 12px}
 .step p{color:var(--text-secondary)}
 .steps-cta{margin-top:clamp(36px,6vh,60px)}
-.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .facts{list-style:none;padding:0;margin:36px 0 0;display:flex;gap:clamp(20px,4vw,48px);flex-wrap:wrap;align-items:baseline}
 .facts li{display:flex;flex-direction:column;gap:6px;color:var(--ink);font-size:.8rem}
 .facts span{color:var(--text-secondary);font-size:.66rem}
@@ -422,22 +463,21 @@ section{position:relative}
 }
 @media (max-width:720px){
   .foot-row{align-items:flex-start}
-  .nav-links{gap:14px}
-  .nav-links li:nth-child(2){display:none}
   .portrait-frame{aspect-ratio:4/5}
   .tc-chip{display:none}
+  .menu-btn{margin-left:auto}
   .grid{--cols:1}
   .vf-overlay{display:none}
 }
-@media (max-width:400px){.nav-links{gap:10px;font-size:.92rem}}
-@media (max-height:560px){.vf-scroll,.tc-chip{display:none}}
+@media (max-height:560px){.vf-scroll,.tc-chip{display:none}.menu-btn{margin-left:auto}}
 
 /* =========================================================
    Reduced motion: everything in its final state
    ========================================================= */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
-  [data-reveal],.svc-list .svc,.steps-list .step,.grid .tile.pre,.hero-content>*,.mission-hero-inner>*{opacity:1!important;transform:none!important}
+  [data-reveal],.svc-list .svc,.steps-list .step,.grid .tile.pre,.hero-content>*,.mission-hero-inner>*,.nav-links a,.menu-foot{opacity:1!important;transform:none!important}
+  .menu{clip-path:none!important}
   .portrait-frame img{transform:none!important}
   [data-reveal][data-split] .wi{transform:none!important}
   .fill-text .fw{opacity:1}
