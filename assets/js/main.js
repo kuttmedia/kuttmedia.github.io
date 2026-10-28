@@ -196,6 +196,8 @@
      ========================================================= */
   const nav = $('#nav');
   const contact = $('#contact');
+  // dark sections the nav sits over (the mission hero), so it switches to its light-on-dark look
+  const darkBands = $$('[data-dark]');
   const tcEls = $$('.tc');
   let navDark = null, navScrolled = null, navFooter = null, lastTc = '', lastTcAt = 0;
 
@@ -250,7 +252,8 @@
 
     // nav
     const inFooter = !!contact && contact.getBoundingClientRect().top < 64;
-    const dark = (hero && hero.getBoundingClientRect().bottom > 64) || inFooter || document.body.dataset.nav === 'dark';
+    const dark = (hero && hero.getBoundingClientRect().bottom > 64) || inFooter || document.body.dataset.nav === 'dark' ||
+      darkBands.some(b => { const r = b.getBoundingClientRect(); return r.top < 64 && r.bottom > 64; });
     if (inFooter !== navFooter) { nav.classList.toggle('in-footer', inFooter); navFooter = inFooter; }
     const scrolled = y > 10;
     if (dark !== navDark) { nav.classList.toggle('on-dark', dark); navDark = dark; }
