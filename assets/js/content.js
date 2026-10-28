@@ -21,8 +21,7 @@ window.SITE = {
   heroReel: 'assets/video/hero-reel.mp4',
   socials: [
     { label: 'Instagram', url: 'https://www.instagram.com/damo.productions/' },
-    { label: 'YouTube', url: '#' },
-    { label: 'LinkedIn', url: '#' }
+    { label: 'YouTube', url: 'https://www.youtube.com/@kuttmediaau' }
   ]
 };
 
