@@ -50,6 +50,10 @@ python serve.py
 
 Open http://localhost:5173. `serve.py` behaves like GitHub Pages: `/about` opens `about.html`, and a missing page shows `404.html`. (Python's plain `http.server` can't do that, so links between pages would break.)
 
+## After changing CSS or JavaScript
+
+Browsers keep `style.css`, `main.js` and `content.js` for up to 10 minutes, so a returning visitor can see new HTML with old styles. Every page loads them with `?v=` and a date, like `style.css?v=20261029`. When you change one of those files, change that number on every page (find and replace) so browsers fetch the new copy.
+
 ## Publish on GitHub Pages
 
 1. Create a public repository on GitHub. Naming it `yourusername.github.io` puts the site at that address.
