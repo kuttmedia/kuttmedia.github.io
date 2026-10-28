@@ -390,7 +390,7 @@ section{position:relative}
 .lost{min-height:100svh;display:grid;place-content:center;justify-items:center;text-align:center;gap:clamp(16px,3vh,26px);padding:120px var(--gutter) 80px;background:var(--night);color:var(--night-text)}
 .lost-tc{display:inline-flex;align-items:center;gap:10px;color:var(--night-dim)}
 .lost-tc i{width:8px;height:8px;border-radius:50%;background:#ff4d5e;animation:blink 1.2s steps(2,start) infinite}
-.lost-code{font-family:var(--f-display);font-weight:800;font-size:clamp(7rem,24vw,20rem);line-height:.8;letter-spacing:-.06em;color:transparent;background:linear-gradient(180deg,#b9a3ff,var(--accent));-webkit-background-clip:text;background-clip:text}
+.lost .lost-code{font-family:var(--f-display);font-weight:800;font-size:clamp(7rem,24vw,20rem);line-height:.8;letter-spacing:-.06em;color:#8f5cf7}
 .lost h1{font-size:clamp(2rem,4.4vw,3.6rem)}
 .lost p{color:var(--night-dim);max-width:40ch}
 .lost-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
