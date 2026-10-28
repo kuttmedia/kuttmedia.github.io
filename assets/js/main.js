@@ -20,7 +20,7 @@
   if (SITE.name) {
     $$('[data-name]').forEach(el => { el.textContent = SITE.name; });
     const page = document.body.dataset.page;
-    document.title = (page ? page + ' · ' : '') + SITE.name + ' · ' + (SITE.role || 'Video Producer');
+    document.title = (page ? page + ' · ' : '') + SITE.name + ' · ' + (SITE.role || 'Video Production');
   }
   if (SITE.email) {
     $$('[data-email]').forEach(el => { el.href = 'mailto:' + SITE.email; el.textContent = SITE.email; });

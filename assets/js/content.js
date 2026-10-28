@@ -15,7 +15,7 @@
 
 window.SITE = {
   name: 'Kutt',
-  role: 'Video producer',
+  role: 'Video Production',
   email: 'damian16465@gmail.com',
   // Still frame shown on phones and while the reel loads
   heroPoster: 'assets/img/hero-poster.jpg',

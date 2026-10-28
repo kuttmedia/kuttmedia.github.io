@@ -279,6 +279,7 @@ section{position:relative}
 /* home: link through to the About page */
 .about-link{padding:clamp(70px,10vh,120px) var(--gutter);border-top:1px solid var(--line)}
 .about-link-a{display:block;text-decoration:none}
+.about-link-a .eyebrow{display:block}
 .about-link-title{display:inline-flex;align-items:baseline;gap:.3em;font-family:var(--f-display);font-weight:700;letter-spacing:-.03em;line-height:1;font-size:clamp(2.2rem,5.6vw,5.4rem);transition:color .4s var(--ease-out)}
 .about-link-a .arrow{display:inline-block;color:var(--accent);transition:transform .6s var(--ease-out)}
 .about-link-a:hover .about-link-title{color:var(--accent)}
