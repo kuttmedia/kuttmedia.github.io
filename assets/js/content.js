@@ -2,13 +2,15 @@
   Your content lives here. Change these and the whole site updates.
 
   PROJECTS: one entry per video.
-    category  podcast | conference | promo | studio | brand
+    category  talking | montage | podcast | conference | promo | studio | brand
     youtube   the ID after "watch?v=" in a YouTube link (e.g. "dQw4w9WgXcQ")
     vimeo     the number at the end of a Vimeo link (e.g. "76979871")
     file      or a short local mp4 in assets/video/ (keep it small, GitHub is not a video host)
     preview   a short silent loop that plays when someone hovers the tile (assets/video/...)
-    poster    a still frame for the tile (assets/img/...)
-  Leave any of them as '' and the site shows a clean placeholder instead.
+    poster    a still frame for the tile (assets/img/... or the video's YouTube thumbnail)
+    page      the project's own page in work/ (copy an existing one to make a new one)
+  Leave any of them as '' and the site does without it.
+  The filter buttons above the grid appear once there are 4 or more projects.
 */
 
 window.SITE = {
@@ -26,16 +28,13 @@ window.SITE = {
 };
 
 window.PROJECTS = [
-  { title: 'The Weekly Sit-Down', client: 'Podcast series', category: 'podcast', year: '2026', duration: '00:58:12', youtube: '', vimeo: '', file: '', preview: '', poster: '' },
-  { title: 'Main Stage Highlights', client: 'Annual conference', category: 'conference', year: '2026', duration: '00:02:40', youtube: '', vimeo: '', file: '', preview: '', poster: '' },
-  { title: 'Spring Launch', client: 'Social promo', category: 'promo', year: '2026', duration: '00:00:30', youtube: '', vimeo: '', file: '', preview: '', poster: '' },
-  { title: 'Founder Story', client: 'Talking head', category: 'studio', year: '2025', duration: '00:03:05', youtube: '', vimeo: '', file: '', preview: '', poster: '' },
-  { title: 'Behind the Brand', client: 'Brand film', category: 'brand', year: '2025', duration: '00:01:45', youtube: '', vimeo: '', file: '', preview: '', poster: '' },
-  { title: 'Clips That Travel', client: 'Podcast cut-downs', category: 'podcast', year: '2025', duration: '00:00:45', youtube: '', vimeo: '', file: '', preview: '', poster: '' },
-  { title: 'Keynote Recap', client: 'Conference', category: 'conference', year: '2025', duration: '00:04:10', youtube: '', vimeo: '', file: '', preview: '', poster: '' }
+  { title: 'Summernats 2026 has begun!', client: 'Event montage', category: 'montage', year: '2026', duration: '00:00:55', youtube: 'uzzW4Rr6o3g', vimeo: '', file: '', preview: '', poster: 'https://i.ytimg.com/vi/uzzW4Rr6o3g/maxresdefault.jpg', page: 'work/summernats-2026.html' },
+  { title: 'Why I swapped to this Sony camera', client: 'YouTube video', category: 'talking', year: '2024', duration: '00:09:01', youtube: 'FWd09-X1tzw', vimeo: '', file: '', preview: '', poster: 'https://i.ytimg.com/vi/FWd09-X1tzw/maxresdefault.jpg', page: 'work/sony-camera-swap.html' }
 ];
 
 window.CATEGORIES = {
+  talking: 'Talking heads',
+  montage: 'Montages',
   podcast: 'Podcasts',
   conference: 'Conferences',
   promo: 'Promos',

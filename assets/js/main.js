@@ -31,9 +31,9 @@
     const a = document.createElement('a');
     a.href = s.url; a.textContent = s.label;
     if (/^https?:/.test(s.url)) { a.target = '_blank'; a.rel = 'noopener'; }
-    li.appendChild(a); socials.appendChild(li);
+    li.appendChild(a); if (socials) socials.appendChild(li);
   });
-  $('#year').textContent = new Date().getFullYear();
+  if ($('#year')) $('#year').textContent = new Date().getFullYear();
 
   /* ---------- split text into word spans ----------
      Elements inside a heading (like the Kutt logo word) move as one word.
@@ -249,8 +249,8 @@
     }
 
     // nav
-    const inFooter = contact.getBoundingClientRect().top < 64;
-    const dark = (hero && hero.getBoundingClientRect().bottom > 64) || inFooter;
+    const inFooter = !!contact && contact.getBoundingClientRect().top < 64;
+    const dark = (hero && hero.getBoundingClientRect().bottom > 64) || inFooter || document.body.dataset.nav === 'dark';
     if (inFooter !== navFooter) { nav.classList.toggle('in-footer', inFooter); navFooter = inFooter; }
     const scrolled = y > 10;
     if (dark !== navDark) { nav.classList.toggle('on-dark', dark); navDark = dark; }
@@ -404,12 +404,14 @@
   const PLAY_SVG = '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="rgba(244,241,250,.55)" stroke-width="1.5"/><path d="M26 21 L45 32 L26 43Z" fill="rgba(244,241,250,.85)"/></svg>';
   const tr = rng(42);
   const tiles = (grid ? PROJECTS : []).map((p, i) => {
-    const t = document.createElement('button');
-    t.type = 'button';
+    // a project with its own page links there; otherwise the tile opens the player
+    const t = document.createElement(p.page ? 'a' : 'button');
+    if (p.page) t.href = p.page;
+    else t.type = 'button';
     t.className = 'tile pre';
     t.dataset.cat = p.category;
-    t.dataset.cursor = 'Play';
-    t.setAttribute('aria-label', 'Play ' + p.title + ', ' + (CATS[p.category] || p.category));
+    t.dataset.cursor = p.page ? 'View' : 'Play';
+    t.setAttribute('aria-label', (p.page ? '' : 'Play ') + p.title + ', ' + (CATS[p.category] || p.category));
     const media = document.createElement('div');
     media.className = 'tile-media';
     if (p.poster) {
@@ -421,7 +423,7 @@
       ph.className = 'ph';
       ph.style.setProperty('--px', Math.round(15 + tr() * 70) + '%');
       ph.style.setProperty('--py', Math.round(10 + tr() * 60) + '%');
-      ph.innerHTML = PLAY_SVG + '<span class="mono">Clip ' + String(i + 1).padStart(2, '0') + ' · your footage here</span>';
+      ph.innerHTML = PLAY_SVG;
       media.appendChild(ph);
     }
     if (p.duration) {
@@ -452,7 +454,7 @@
       });
       t.addEventListener('pointerleave', () => { if (v) { v.pause(); t.classList.remove('playing'); } });
     }
-    t.addEventListener('click', () => openPlayer(p));
+    if (!p.page) t.addEventListener('click', () => openPlayer(p));
     grid.appendChild(t);
     return t;
   });
@@ -469,8 +471,9 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   tiles.forEach(t => tileIO.observe(t));
 
-  // filters
-  const usedCats = filters ? [...new Set(PROJECTS.map(p => p.category))] : [];
+  // filters, once there's enough work to be worth filtering
+  if (filters && PROJECTS.length < 4) filters.hidden = true;
+  const usedCats = filters && !filters.hidden ? [...new Set(PROJECTS.map(p => p.category))] : [];
   usedCats.forEach(c => {
     const b = document.createElement('button');
     b.className = 'chip-btn'; b.type = 'button';
@@ -534,10 +537,21 @@
     $('.player-close').addEventListener('click', () => player.close());
   }
 
+  /* ---------- project page video: a still with a play button, swapped for YouTube on click ---------- */
+  $$('[data-yt]').forEach(box => {
+    box.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.dataset.yt) + '?autoplay=1&rel=0&modestbranding=1';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true; f.title = box.getAttribute('aria-label') || 'Video';
+      box.replaceWith(f);
+    }, { once: true });
+  });
+
   /* ---------- copy email ---------- */
   const copyBtn = $('.copy-btn');
   let copyTimer = null;
-  copyBtn.addEventListener('click', async () => {
+  if (copyBtn) copyBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(SITE.email || $('[data-email]').textContent);
       copyBtn.textContent = 'Copied';

@@ -8,7 +8,9 @@ A one-page portfolio site in plain HTML, CSS and JavaScript. There's no build st
 |---|---|
 | Your name, email, socials, hero reel | `assets/js/content.js` (the `SITE` block) |
 | Your projects (the work grid) | `assets/js/content.js` (the `PROJECTS` list) |
-| Page text and sections | `index.html` |
+| Page text and sections | `index.html`, `about.html` |
+| One page per project | `work/` |
+| The page shown for a broken link | `404.html` |
 | Colours, fonts, layout | `assets/css/style.css` (colour tokens at the top) |
 | Animation and interaction | `assets/js/main.js` |
 
@@ -18,7 +20,10 @@ A one-page portfolio site in plain HTML, CSS and JavaScript. There's no build st
 2. In `assets/js/content.js`, add its ID to a project:
    - `youtube: 'dQw4w9WgXcQ'` (the part after `watch?v=`)
    - `vimeo: '76979871'` (the number at the end of the link)
-3. Optional: add a still frame (`poster`) and a silent 3 to 6 second loop (`preview`) that plays on hover. Put them in `assets/img/` and `assets/video/`.
+3. Optional: add a still frame (`poster`) and a silent 3 to 6 second loop (`preview`) that plays on hover. Put them in `assets/img/` and `assets/video/`. A YouTube video's thumbnail works as a poster: `https://i.ytimg.com/vi/VIDEO_ID/maxresdefault.jpg`.
+4. Give it a page: copy a file in `work/`, rename it, and change the video ID, title, details and text inside. Then set `page: 'work/your-file.html'` on the project so its tile links there. Update each page's "Next project" link so they chain together.
+
+The filter buttons above the grid only appear once there are 4 or more projects.
 
 Keep every file in this folder under about 20 MB. GitHub isn't a video host, so full-length videos belong on YouTube or Vimeo.
 
