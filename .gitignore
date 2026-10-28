@@ -1,0 +1,10 @@
+.claude/
+review/
+*.raw.mp4
+
+# source logo packs: web copies live in assets/img/logo
+Kutt-Logo-PNG/
+Kutt-Logo-SVG/
+
+# logo animation work in progress
+kutt-reveal/

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kutt · Video Producer</title>
+  <meta name="description" content="Studio-based video producer. Podcasts, conference films, talking heads, social promos and brand video.">
+  <meta name="theme-color" content="#120e1a">
+  <meta property="og:title" content="Kutt · Video Producer">
+  <meta property="og:description" content="Podcasts, conference films, talking heads, social promos and brand video.">
+  <meta property="og:type" content="website">
+  <!-- DEPLOY STEP: once the site is live, add absolute og:url and og:image tags here -->
+  <link rel="icon" type="image/png" href="assets/img/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/logo/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Unbounded Black (the Kutt logo typeface), only the letter S, for "Recent KUTTS" -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&text=S&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- One environment behind everything -->
+  <div class="env" aria-hidden="true">
+    <div class="env-blob env-blob--a"></div>
+    <div class="env-blob env-blob--b"></div>
+    <div class="env-grain"></div>
+  </div>
+
+  <!-- Cursor follower (fine pointers only) -->
+  <div class="cursor" aria-hidden="true">
+    <div class="c-glow"></div>
+    <div class="c-ring"><span class="c-label"></span></div>
+  </div>
+
+  <header class="nav on-dark" id="nav">
+    <a class="brand" href="#top" aria-label="Kutt, back to top">
+      <img class="brand-logo brand-logo--light" src="assets/img/logo/kutt-wordmark-white.svg" alt="" width="1724" height="654"><img class="brand-logo brand-logo--dark" src="assets/img/logo/kutt-wordmark-black.svg" alt="" width="1724" height="654">
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">What I do</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <span class="tc-chip mono" aria-hidden="true"><i></i><span class="tc">00:00:00:00</span></span>
+  </header>
+
+  <!-- ============ HERO: logo over the reel ============ -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero-stage">
+      <div class="hero-media" aria-hidden="true">
+        <video id="heroVideo" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+        <div class="scrim"></div>
+      </div>
+
+      <!-- Viewfinder overlay -->
+      <div class="vf-overlay" aria-hidden="true">
+        <span class="vf-rec mono"><i></i>REC</span>
+        <span class="vf-tc mono tc">00:00:00:00</span>
+        <span class="vf-fmt mono">4K · 30P</span>
+        <span class="vf-scroll mono">Scroll</span>
+      </div>
+
+      <div class="hero-content">
+        <p class="kicker mono">Video producer · Studio based</p>
+        <h1 class="hero-logo"><img src="assets/img/logo/kutt-wordmark-white.svg" alt="Kutt" width="1724" height="654"></h1>
+        <p class="hero-sub">Video production for podcasts, events and brands.</p>
+        <div class="hero-cta">
+          <a class="btn btn--accent" href="#work" data-cursor="View">See the work</a>
+          <a class="btn btn--ghost" href="#contact">Say hello</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ============ INTRO ============ -->
+    <section class="intro" aria-label="About my work">
+      <p class="eyebrow mono" data-reveal>01 / The short version</p>
+      <p class="fill-text" data-fill>
+        I'm a studio-based video producer. I record podcasts, film conference stages, shoot talking heads and cut promos for socials and YouTube. Clients send me their raw footage too, and I shape it into one clear story. <em>Made to be watched to the end.</em>
+      </p>
+      <svg class="intro-line" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+        <path data-draw pathLength="1" d="M0 70 C 150 10, 300 110, 450 60 S 750 10, 900 70 S 1100 110, 1200 40"/>
+      </svg>
+    </section>
+
+    <!-- Marquee strip -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Podcasts</span><i></i><span>Conferences</span><i></i><span>Talking heads</span><i></i><span>Social promos</span><i></i><span>Studio</span><i></i><span>Brand film</span><i></i>
+      </div>
+    </div>
+
+    <!-- ============ WORK ============ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="work-head">
+        <div>
+          <p class="eyebrow mono" data-reveal>02 / Selected work</p>
+          <h2 id="work-title" class="h-section" data-split data-reveal>Recent <span class="kutt-word" data-label="Kutts"><span class="sr">Kutts</span><img src="assets/img/logo/kutt-wordmark-tight-split-k-dark.svg" alt="" width="2143" height="486"><span class="kutt-s" aria-hidden="true">S</span></span></h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filter work by type">
+          <button class="chip-btn" aria-pressed="true" data-filter="all">All</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services" aria-labelledby="svc-title">
+      <div class="svc-side">
+        <p class="eyebrow mono" data-reveal>03 / What I do</p>
+        <h2 id="svc-title" class="h-section" data-split data-reveal>From the studio floor to every screen.</h2>
+        <p class="svc-lede" data-reveal>One person, one studio, every step. Planning, lights, cameras, sound and the edit all happen under one roof.</p>
+      </div>
+      <div class="svc-list-wrap">
+        <svg class="svc-line" viewBox="0 0 4 1000" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" d="M2 0 V 1000"/>
+        </svg>
+        <ol class="svc-list" data-reveal>
+          <li class="svc"><span class="num mono">01</span><h3>Podcasts</h3><p>Multi-camera studio recording, a clean edit, and short clips cut for socials.</p></li>
+          <li class="svc"><span class="num mono">02</span><h3>Conference video</h3><p>Speaker sessions, panels and highlight reels that capture the room.</p></li>
+          <li class="svc"><span class="num mono">03</span><h3>Talking heads</h3><p>Interviews and to-camera pieces, lit and miked so people look and sound their best.</p></li>
+          <li class="svc"><span class="num mono">04</span><h3>Social and YouTube promos</h3><p>Ads, cut-downs and vertical edits built for the feed they live in.</p></li>
+          <li class="svc"><span class="num mono">05</span><h3>Montages from your footage</h3><p>Send me the raw clips. I find the story and cut it together.</p></li>
+          <li class="svc"><span class="num mono">06</span><h3>Studio production</h3><p>Set, lights and sound ready to go, so shoot days run calm and on time.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT TEASER ============ -->
+    <section class="about-link" aria-label="About">
+      <a class="about-link-a" href="about.html" data-cursor="Meet">
+        <span class="eyebrow mono">04 / About</span>
+        <span class="about-link-title">The person behind the camera <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
+    </section>
+  </main>
+
+  <!-- ============ CONTACT + FOOTER ============ -->
+  <footer class="contact" id="contact">
+    <div class="contact-inner">
+      <p class="eyebrow mono" data-reveal>Contact</p>
+      <h2 class="h-contact" data-split data-reveal>Let's roll.</h2>
+
+      <div class="mail" data-reveal>
+        <p class="mail-hint mono">Got a project in mind? Email me.</p>
+        <div class="mail-row">
+          <a class="mail-link" data-email href="mailto:damian16465@gmail.com">damian16465@gmail.com</a>
+          <button class="copy-btn mono" type="button">Copy email</button>
+        </div>
+      </div>
+
+      <div class="foot">
+        <p class="wordmark"><img src="assets/img/logo/kutt-wordmark-tight-white.svg" alt="Kutt" width="2143" height="486" loading="lazy"></p>
+        <div class="foot-row">
+          <ul class="socials" id="socials"></ul>
+          <p class="mono foot-note">Every frame on this site is my own work. © <span id="year">2026</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Video player -->
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player-inner">
+      <div class="player-top">
+        <p class="mono player-meta" id="player-meta"></p>
+        <button class="player-close" type="button" aria-label="Close video">Close</button>
+      </div>
+      <h2 class="player-title" id="player-title"></h2>
+      <div class="player-frame" id="player-frame"></div>
+    </div>
+  </dialog>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="assets/js/content.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
