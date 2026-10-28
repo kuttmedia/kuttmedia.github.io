@@ -21,7 +21,7 @@ A one-page portfolio site in plain HTML, CSS and JavaScript. There's no build st
    - `youtube: 'dQw4w9WgXcQ'` (the part after `watch?v=`)
    - `vimeo: '76979871'` (the number at the end of the link)
 3. Optional: add a still frame (`poster`) and a silent 3 to 6 second loop (`preview`) that plays on hover. Put them in `assets/img/` and `assets/video/`. A YouTube video's thumbnail works as a poster: `https://i.ytimg.com/vi/VIDEO_ID/maxresdefault.jpg`.
-4. Give it a page: copy a file in `work/`, rename it, and change the video ID, title, details and text inside. Then set `page: 'work/your-file.html'` on the project so its tile links there. Update each page's "Next project" link so they chain together.
+4. Give it a page: copy a file in `work/`, rename it, and change the video ID, title, details and text inside. Then set `page: '/work/your-file'` on the project (no `.html`: the site uses clean addresses like `/work/summernats-2026`) so its tile links there. Update each page's "Next project" link so they chain together.
 
 The filter buttons above the grid only appear once there are 4 or more projects.
 
@@ -45,10 +45,10 @@ Web copies of the Kutt logo (SVG, cropped to the artwork) live in `assets/img/lo
 ## Preview locally
 
 ```
-python -m http.server 5173
+python serve.py
 ```
 
-Open http://localhost:5173. Double-clicking `index.html` also works, but the hero video won't load from a file:// address.
+Open http://localhost:5173. `serve.py` behaves like GitHub Pages: `/about` opens `about.html`, and a missing page shows `404.html`. (Python's plain `http.server` can't do that, so links between pages would break.)
 
 ## Publish on GitHub Pages
 

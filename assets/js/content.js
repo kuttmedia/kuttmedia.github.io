@@ -28,8 +28,8 @@ window.SITE = {
 };
 
 window.PROJECTS = [
-  { title: 'Summernats 2026 has begun!', client: 'Event montage', category: 'montage', year: '2026', duration: '00:00:55', youtube: 'uzzW4Rr6o3g', vimeo: '', file: '', preview: '', poster: 'https://i.ytimg.com/vi/uzzW4Rr6o3g/maxresdefault.jpg', page: 'work/summernats-2026.html' },
-  { title: 'Why I swapped to this Sony camera', client: 'YouTube video', category: 'talking', year: '2024', duration: '00:09:01', youtube: 'FWd09-X1tzw', vimeo: '', file: '', preview: '', poster: 'https://i.ytimg.com/vi/FWd09-X1tzw/maxresdefault.jpg', page: 'work/sony-camera-swap.html' }
+  { title: 'Summernats 2026 has begun!', client: 'Event montage', category: 'montage', year: '2026', duration: '00:00:55', youtube: 'uzzW4Rr6o3g', vimeo: '', file: '', preview: '', poster: 'https://i.ytimg.com/vi/uzzW4Rr6o3g/maxresdefault.jpg', page: '/work/summernats-2026' },
+  { title: 'Why I swapped to this Sony camera', client: 'YouTube video', category: 'talking', year: '2024', duration: '00:09:01', youtube: 'FWd09-X1tzw', vimeo: '', file: '', preview: '', poster: 'https://i.ytimg.com/vi/FWd09-X1tzw/maxresdefault.jpg', page: '/work/sony-camera-swap' }
 ];
 
 window.CATEGORIES = {
