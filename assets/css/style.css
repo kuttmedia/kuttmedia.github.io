@@ -199,6 +199,11 @@ html.menu-locked{overflow:hidden}
 .kicker{color:var(--night-dim);margin-bottom:26px}
 .hero-logo{margin:0;width:clamp(260px,44vw,720px);filter:drop-shadow(0 6px 40px rgba(5,5,10,.55))}
 .hero-logo img{width:100%;height:auto}
+/* Animated logo loop (assets/video/kutt-logo-loop.*). Its frame has room around the word for the playhead,
+   so it is sized and pulled out with negative margins until its letters sit exactly on the still logo's. */
+.hero-logo-anim{display:none;width:115.64%;max-width:none;height:auto;margin:-4.52% -7.82% -4.507%}
+.hero-logo.is-animated .hero-logo-anim{display:block}
+.hero-logo.is-animated .hero-logo-still{display:none}
 .hero-sub{margin-top:24px;font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--night-dim);max-width:38ch}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:30px}
 .hero-content>*{opacity:0;animation:heroIn 1.2s var(--ease-out) both}
