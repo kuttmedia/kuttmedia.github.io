@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="110.34 33.54 1379.32 1379.32">
+  <!-- Split K from Kutt-Logo-SVG/kutt-k-mark-*.svg on a transparent square: black stem in light mode, white in dark mode -->
+  <style>
+    #k-stem{fill:#0B0A0F}
+    @media (prefers-color-scheme: dark){#k-stem{fill:#FFFFFF}}
+  </style>
+  <path id="k-stem" d="M528.71 1336.04L492.76 1336.04L110.34 1336.04L110.34 110.34L528.71 110.34L528.71 776.97L528.71 1291.09Z"/>
+  <path fill="#7C3AED" d="M587.55 1217.55L587.55 699.07L1032.06 110.34L1473.31 110.34L1064.41 621.49L799.25 952.93Z"/>
+  <path fill="#7C3AED" d="M1012.45 1336.04L830.35 1008.82L1096.75 675.85L1489.66 1336.04Z"/>
+</svg>
