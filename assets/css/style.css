@@ -205,13 +205,9 @@ html.menu-locked{overflow:hidden}
 .hero-logo.is-animated .hero-logo-anim{display:block}
 .hero-logo.is-animated .hero-logo-still{display:none}
 .hero-sub{margin-top:24px;font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--night-dim);max-width:38ch}
-/* equal-width buttons and a kicker split around its dot, so both centre on the logo */
+/* equal-width buttons, so the gap between them centres on the logo */
 .hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
-.hero-content>.kicker{display:grid;grid-template-columns:1fr auto 1fr;gap:.8em}
-.hero-content>.kicker span:first-child{text-align:right}
-.hero-content>.kicker span:last-child{text-align:left}
 .hero-content>*{opacity:0;animation:heroIn 1.2s var(--ease-out) both}
-.hero-content>.kicker{animation-delay:.25s}
 .hero-content>.hero-logo{animation-name:heroLogoIn;animation-duration:1.5s;animation-delay:.4s}
 .hero-content>.hero-sub{animation-delay:.85s}
 .hero-content>.hero-cta{animation-delay:1.05s}
