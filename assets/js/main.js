@@ -198,34 +198,34 @@
     }).observe(hero);
   }
 
-  /* animated logo loop in place of the still logo (reduced motion keeps the still).
-     Safari can't show see-through webm, so Apple browsers get the animated webp instead. */
+  /* animated logo loop in place of the still logo, drawn live by kutt-logo.js
+     (reduced motion, or no kutt-logo.js, keeps the still) */
   const heroLogo = $('.hero-logo');
-  if (heroLogo && !RM.matches) {
-    const apple = /Apple/.test(navigator.vendor);
-    const anim = document.createElement(apple ? 'img' : 'video');
-    anim.className = 'hero-logo-anim';
-    anim.setAttribute('aria-hidden', 'true');
-    anim.width = 1920;
-    anim.height = 780;
-    const ready = () => heroLogo.classList.add('is-animated');
-    if (apple) {
-      anim.alt = '';
-      anim.addEventListener('load', ready, { once: true });
-      anim.src = 'assets/video/kutt-logo-loop.webp';
-    } else {
-      anim.muted = true;
-      anim.loop = true;
-      anim.autoplay = true;
-      anim.playsInline = true;
-      anim.addEventListener('playing', ready, { once: true });
-      anim.src = 'assets/video/kutt-logo-loop.webm';
-      new IntersectionObserver(([e]) => {
-        if (e.isIntersecting) anim.play().catch(() => {});
-        else anim.pause();
-      }).observe(heroLogo);
-    }
-    heroLogo.appendChild(anim);
+  if (heroLogo && window.KUTT && !RM.matches) {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'hero-logo-anim';
+    canvas.setAttribute('aria-hidden', 'true');
+    heroLogo.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const LEN = KUTT.VARIANTS.loopWhite.duration;
+    const fit = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = Math.round(canvas.clientWidth * dpr);
+      canvas.height = Math.round(canvas.width * 780 / 1920);
+    };
+    let start = 0, raf = 0;
+    const frame = now => {
+      if (!start) start = now;
+      KUTT.renderFrame(ctx, ((now - start) / 1000) % LEN, { variant: 'loopWhite' });
+      raf = requestAnimationFrame(frame);
+    };
+    heroLogo.classList.add('is-animated');
+    fit();
+    addEventListener('resize', fit);
+    new IntersectionObserver(([e]) => {
+      cancelAnimationFrame(raf);
+      if (e.isIntersecting) raf = requestAnimationFrame(frame);
+    }).observe(heroLogo);
   }
 
   /* phones, small screens and reduced motion get a still frame instead of the reel (identical to the CSS) */
