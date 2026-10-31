@@ -2,7 +2,7 @@
   Your content lives here. Change these and the whole site updates.
 
   PROJECTS: one entry per video.
-    category  talking | montage | podcast | conference | promo | studio | brand
+    category  talking | montage | podcast | conference | promo | brand
     youtube   the ID after "watch?v=" in a YouTube link (e.g. "dQw4w9WgXcQ")
     vimeo     the number at the end of a Vimeo link (e.g. "76979871")
     file      or a short local mp4 in assets/video/ (keep it small, GitHub is not a video host)
@@ -40,6 +40,5 @@ window.CATEGORIES = {
   podcast: 'Podcasts',
   conference: 'Conferences',
   promo: 'Promos',
-  studio: 'Studio',
   brand: 'Brand'
 };
