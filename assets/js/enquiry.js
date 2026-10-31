@@ -113,7 +113,9 @@
       view = new Date(t.getFullYear(), t.getMonth(), 1);
       render(t.getDate());
     });
-    document.addEventListener('click', e => { if (!pop.hidden && !wrap.contains(e.target)) close(); });
+    /* the event path, not e.target: changing month redraws the calendar, so the clicked arrow
+       is no longer inside it by the time this runs */
+    document.addEventListener('click', e => { if (!pop.hidden && !e.composedPath().includes(wrap)) close(); });
     form.addEventListener('reset', () => set(null));
   }
 
