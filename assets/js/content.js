@@ -22,7 +22,7 @@ window.SITE = {
   // Background reel: plays muted and looping behind the logo at the top of the home page
   heroReel: 'assets/video/hero-reel.mp4',
   socials: [
-    { label: 'Instagram', url: 'https://www.instagram.com/damo.productions/' },
+    { label: 'Instagram', url: 'https://www.instagram.com/kutt.media/' },
     { label: 'YouTube', url: 'https://www.youtube.com/@kuttmediaau' }
   ],
   // Contact page enquiry form: the access key Web3Forms emailed you (it's meant to be public)
