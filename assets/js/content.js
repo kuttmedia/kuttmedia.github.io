@@ -24,7 +24,9 @@ window.SITE = {
   socials: [
     { label: 'Instagram', url: 'https://www.instagram.com/damo.productions/' },
     { label: 'YouTube', url: 'https://www.youtube.com/@kuttmediaau' }
-  ]
+  ],
+  // Contact page enquiry form: the access key Web3Forms emailed you (it's meant to be public)
+  formKey: '6a4be9f6-a04b-4d49-8f3d-59bc5848cfaa'
 };
 
 window.PROJECTS = [

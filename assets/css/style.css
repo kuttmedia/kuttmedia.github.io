@@ -383,6 +383,32 @@ section{position:relative}
 .copy-btn:hover{border-color:var(--night-text);background:rgba(244,241,250,.08)}
 .copy-btn.copied{background:var(--accent);border-color:var(--accent);color:#fff}
 @media (pointer:coarse){.copy-btn{min-height:44px}}
+/* contact page: enquiry form beside direct details */
+.contact-page{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,4fr);gap:clamp(32px,5vw,80px);align-items:start;padding:clamp(24px,4vh,48px) var(--gutter) clamp(100px,14vh,170px)}
+.enquiry{display:grid;gap:18px}
+.field{display:grid;gap:8px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field label{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+.field input,.field select,.field textarea{font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;
+  transition:border-color .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+.field textarea{resize:vertical;min-height:130px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-muted)}
+.enquiry .btn{justify-self:start;border:0;cursor:pointer;font-family:inherit}
+.enquiry .btn:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px}
+.form-status{min-height:1.2em;color:var(--text-secondary)}
+.contact-direct{display:grid;gap:30px}
+.contact-direct .eyebrow{margin-bottom:-6px}
+.direct-label{color:var(--text-secondary);margin-bottom:10px}
+.contact-direct .mail-link{font-size:clamp(1.2rem,1.9vw,1.6rem);color:var(--ink)}
+.contact-direct .mail-link:hover{color:var(--accent)}
+.contact-direct .copy-btn{border-color:var(--line);color:var(--ink)}
+.contact-direct .copy-btn:hover{border-color:var(--ink);background:var(--panel)}
+.contact-direct .copy-btn.copied{background:var(--accent);border-color:var(--accent);color:#fff}
+.direct-socials{list-style:none;display:flex;flex-wrap:wrap;gap:10px 28px;margin:0;padding:0}
+.direct-socials a,.direct-text{font-family:var(--f-display);font-weight:700;font-size:clamp(1.2rem,1.9vw,1.6rem);letter-spacing:-.02em;color:var(--ink);text-decoration:none;transition:color .3s var(--ease-out)}
+.direct-socials a:hover{color:var(--accent)}
+.direct-text{margin:0}
 /* footer: wordmark and the menu links as a big list (stacked on phones), then a ruled bar with social icons and the note */
 .foot{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(24px,4vh,40px)}
 .wordmark{margin:0;width:clamp(180px,24vw,320px)}
@@ -471,12 +497,13 @@ section{position:relative}
    Responsive
    ========================================================= */
 @media (max-width:900px){
-  .services,.story,.about-intro,.project-main{grid-template-columns:1fr}
+  .services,.story,.about-intro,.project-main,.contact-page{grid-template-columns:1fr}
   .svc-side{position:static}
   .steps-list{grid-template-columns:1fr}
   .grid{--cols:2}
 }
 @media (max-width:720px){
+  .field-row{grid-template-columns:1fr}
   .portrait-frame{aspect-ratio:4/5}
   .tc-chip{display:none}
   .menu-btn{margin-left:auto}

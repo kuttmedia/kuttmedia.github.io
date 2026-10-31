@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Kutt · Video Production</title>
+  <meta name="description" content="Get in touch with Kutt about a podcast, event, talking head or promo. Send an enquiry or email Damo directly.">
+  <!-- unlisted for now: nothing links here and search engines are asked to skip it -->
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#120e1a">
+  <meta property="og:title" content="Contact · Kutt">
+  <meta property="og:description" content="Send an enquiry or email Damo directly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kuttmedia.github.io/contact">
+  <meta property="og:image" content="https://kuttmedia.github.io/assets/img/share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The KUTT logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://kuttmedia.github.io/contact">
+  <link rel="icon" type="image/png" href="assets/img/logo/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="assets/img/logo/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/logo/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261112">
+</head>
+<body data-page="Contact">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="env" aria-hidden="true">
+    <div class="env-blob env-blob--a"></div>
+    <div class="env-blob env-blob--b"></div>
+    <div class="env-grain"></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true">
+    <div class="c-glow"></div>
+    <div class="c-ring"><span class="c-label"></span></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="/" aria-label="Kutt, home">
+      <img class="brand-logo brand-logo--light" src="assets/img/logo/kutt-wordmark-white.svg" alt="" width="1724" height="654"><img class="brand-logo brand-logo--dark" src="assets/img/logo/kutt-wordmark-black.svg" alt="" width="1724" height="654">
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-icon" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span></button>
+    <nav class="menu" id="menu" aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/#services">What I do</a></li>
+        <li><a href="/about">Meet Damo</a></li>
+        <li><a href="/mission">Mission</a></li>
+        <li><a href="/contact" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+    <span class="tc-chip mono" aria-hidden="true"><i></i><span class="tc">00:00:00:00</span></span>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ============ TITLE ============ -->
+    <section class="project-head" aria-labelledby="contact-title">
+      <p class="eyebrow mono" data-reveal>Contact</p>
+      <h1 id="contact-title" class="page-title" data-split data-reveal>Let's roll.</h1>
+      <p class="page-lede" data-reveal>Got a podcast, event or promo in mind? Send the details below and I'll get back to you within a day.</p>
+    </section>
+
+    <section class="contact-page" aria-label="Enquiry form and contact details">
+      <!-- ============ ENQUIRY FORM: Web3Forms, set formKey in content.js ============ -->
+      <div data-reveal>
+        <p class="eyebrow mono">01 / Send an enquiry</p>
+        <form class="enquiry" id="enquiry" novalidate>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-type">What's it for?</label>
+              <select id="f-type" name="project_type">
+                <option>Podcast</option>
+                <option>Conference or event</option>
+                <option>Talking head</option>
+                <option>Social or YouTube promo</option>
+                <option>Brand video</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-date">Shoot date, if you have one</label>
+              <input id="f-date" name="shoot_date" type="date">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">Tell me about it</label>
+            <textarea id="f-msg" name="message" rows="5" required></textarea>
+          </div>
+          <!-- spam trap: people never see or fill this -->
+          <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn--accent" type="submit">Send enquiry</button>
+          <p class="form-status mono" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- ============ DIRECT ============ -->
+      <div class="contact-direct" data-reveal>
+        <p class="eyebrow mono">02 / Or reach me directly</p>
+        <div>
+          <p class="direct-label mono">Email</p>
+          <div class="mail-row">
+            <a class="mail-link" data-email href="mailto:damian16465@gmail.com">damian16465@gmail.com</a>
+            <button class="copy-btn mono" type="button">Copy email</button>
+          </div>
+        </div>
+        <div>
+          <p class="direct-label mono">Socials</p>
+          <ul class="direct-socials">
+            <li><a href="https://www.instagram.com/damo.productions/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@kuttmediaau" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="direct-label mono">Based in</p>
+          <p class="direct-text">Canberra, ACT</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ CONTACT + FOOTER ============ -->
+  <footer class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="foot">
+        <p class="wordmark"><img src="assets/img/logo/kutt-wordmark-tight-white.svg" alt="Kutt" width="2143" height="486" loading="lazy"></p>
+        <nav class="foot-nav" aria-label="Footer"><ul>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#services">What I do</a></li>
+          <li><a href="/about">Meet Damo</a></li>
+          <li><a href="/mission">Mission</a></li>
+          <li><a href="/contact" aria-current="page">Contact</a></li>
+        </ul></nav>
+      </div>
+      <div class="foot-base">
+        <ul class="socials" id="socials"></ul>
+        <p class="mono foot-note">Every frame on this site is my own work. © <span id="year">2026</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="assets/js/content.js?v=20261112" defer></script>
+  <script src="assets/js/main.js?v=20261112" defer></script>
+  <script src="assets/js/enquiry.js?v=20261112" defer></script>
+</body>
+</html>
