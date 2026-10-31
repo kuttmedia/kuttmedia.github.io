@@ -360,9 +360,6 @@ section{position:relative}
 .step h3{font-size:clamp(1.8rem,2.8vw,2.6rem);margin:28px 0 12px}
 .step p{color:var(--text-secondary)}
 .steps-cta{margin-top:clamp(36px,6vh,60px)}
-.facts{list-style:none;padding:0;margin:36px 0 0;display:flex;gap:clamp(20px,4vw,48px);flex-wrap:wrap;align-items:baseline}
-.facts li{display:flex;flex-direction:column;gap:6px;color:var(--ink);font-size:.8rem}
-.facts span{color:var(--text-secondary);font-size:.66rem}
 
 /* contact + footer */
 .contact{position:relative;background:var(--night);color:var(--night-text);padding:clamp(48px,7vh,80px) var(--gutter) 28px;overflow:hidden}
